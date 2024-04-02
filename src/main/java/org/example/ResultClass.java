@@ -1,17 +1,24 @@
 package org.example;
 
-import ru.miqqra.annotations.Inherit;
-import ru.miqqra.annotations.Inheritance;
+import java.util.Set;
+import ru.miqqra.multipleinheritance.MultipleInheritance;
 
-@Inheritance(classes = {Parent1.class, Parent2.class})
-public abstract class ResultClass implements CommonParent {
+@MultipleInheritance(classes = {C.class, E.class})
+public class ResultClass extends ResultClassIntermediary {
 
-    @Inherit(from = Parent1.class)
-    public abstract void whatever();
+    public int whatever(int number) {
+        System.out.println("ResultClass says" + number);
+        return super.whatever(number + 1);
+    }
 
-    @Inherit(from = Parent2.class)
-    public abstract void other();
+    public void other() {
+        super.other();
+        System.out.println("Bye from ResultClass");
+    }
 
-    @Inherit(from = Parent1.class)
-    public abstract void nan();
+    public Set<String> everyClass() {
+        Set<String> fromParent = super.everyClass();
+        fromParent.add("ResultClass");
+        return fromParent;
+    }
 }

@@ -2,12 +2,14 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        ResultClass resultClass = new ResultClassImplExpected();
-
-        resultClass.whatever();
+        ResultClass resultClass = new ResultClass();
+        System.out.println();
+        System.out.println("whatever result is " + resultClass.whatever(0));
+        System.out.println();
         resultClass.other();
-        resultClass.nan();
-
-        System.out.println("Hello world!");
+        System.out.println();
+        System.out.println(resultClass.everyClass());
+        System.out.println();
+        resultClass.onlyA();
     }
 }
